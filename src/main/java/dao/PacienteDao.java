@@ -30,6 +30,7 @@ public class PacienteDao {
                 paciente.setTipoSanguinio(resultado.getString("tipoSanguinio"));
                 paciente.setDataNascimento(resultado.getDate("dataNascimento"));
                 paciente.setNomeCompleto(resultado.getString("nomeCompleto"));
+                pacientes.add(paciente);
 
             }
         } catch (Exception e) {
@@ -89,6 +90,21 @@ public class PacienteDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public int num_pacientes(){
+        String sql ="SELECT COUNT(*) FROM paciente";
+        int total = 0;
+        try{
+            Connection conn = Conexao.getConnection();
+            ps = conn.prepareStatement(sql);
+            resultado = ps.executeQuery();
+            if(resultado.next()){
+                total = resultado.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao buscar total de pacientes");
+        }
+        return total;
     }
 
 }

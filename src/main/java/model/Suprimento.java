@@ -6,6 +6,14 @@ public class Suprimento {
     private int estoque;
     private String descricao;
 
+    public Suprimento(){}
+
+    public Suprimento(String nome, int estoque, String descricao) {
+        this.nome = nome;
+        this.estoque = estoque;
+        this.descricao = descricao;
+    }
+
     public int getId() {
         return id;
     }

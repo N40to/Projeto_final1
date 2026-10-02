@@ -13,6 +13,20 @@ public class Funcionario {
     private double salario;
     private String nomeCompleto;
 
+    public Funcionario(){}
+
+    public Funcionario(int id, String cargo, String endereco, String cpf, String telefone, Date dataNascimento, String descricao, double salario, String nomeCompleto) {
+        this.id = id;
+        this.cargo = cargo;
+        this.endereco = endereco;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.dataNascimento = dataNascimento;
+        this.descricao = descricao;
+        this.salario = salario;
+        this.nomeCompleto = nomeCompleto;
+    }
+
     public int getId() {
         return id;
     }

@@ -24,6 +24,7 @@ public class SuprimentoDao {
                 suprimento.setNome(resultado.getString("nome"));
                 suprimento.setEstoque(resultado.getInt("estoque"));
                 suprimento.setDescricao(resultado.getString("descricao"));
+                suprimentos.add(suprimento);
 
             }
         } catch (Exception e) {

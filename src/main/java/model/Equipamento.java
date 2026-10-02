@@ -11,6 +11,19 @@ public class Equipamento {
     private Date dataUltimaManutencao;
     private String observacao;
 
+    public Equipamento(){}
+
+    public Equipamento(int id, String nome, String estado, String modelo, String marca, Date dataUltimaManutencao, String observacao) {
+        this.id = id;
+        this.nome = nome;
+        this.estado = estado;
+        this.modelo = modelo;
+        this.marca = marca;
+        this.dataUltimaManutencao = dataUltimaManutencao;
+        this.observacao = observacao;
+    }
+
+
     public int getId() {
         return id;
     }

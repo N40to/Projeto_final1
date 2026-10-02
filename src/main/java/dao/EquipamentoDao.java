@@ -11,7 +11,7 @@ public class EquipamentoDao {
     ResultSet resultado;
     PreparedStatement ps;
     Statement st;
-    public List<Equipamento> getBySuprimento(){
+    public List<Equipamento> getByEquipamento(){
         List<Equipamento> equipamentos= new ArrayList<>();
         String sql = "SELECT * FROM equipamento";
 
@@ -27,6 +27,7 @@ public class EquipamentoDao {
                 equipamento.setMarca(resultado.getString("marca"));
                 equipamento.setDataUltimaManutencao(resultado.getDate("dataUltimaManutencao"));
                 equipamento.setObservacao(resultado.getString("observacao"));
+                equipamentos.add(equipamento);
 
             }
         } catch (Exception e) {
@@ -45,7 +46,7 @@ public class EquipamentoDao {
             ps.setString(3 , equipamento.getModelo());
             ps.setString(4 , equipamento.getMarca());
             ps.setDate(5 , equipamento.getDataUltimaManutencao());
-            ps.setString(5 , equipamento.getObservacao());
+            ps.setString(6 , equipamento.getObservacao());
             ps.execute();
             ps.close();
         } catch (Exception e) {

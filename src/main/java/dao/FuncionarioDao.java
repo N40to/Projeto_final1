@@ -29,6 +29,7 @@ public class FuncionarioDao {
                 funcionario.setDescricao(resultado.getString("descricao"));
                 funcionario.setSalario(resultado.getDouble("salario"));
                 funcionario.setNomeCompleto(resultado.getString("nomeCompleto"));
+                funcionarios.add(funcionario);
 
             }
         } catch (Exception e) {
