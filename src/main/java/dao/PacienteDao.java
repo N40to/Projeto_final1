@@ -73,6 +73,7 @@ public class PacienteDao {
             ps.setString(7, paciente.getTipoSanguinio());
             ps.setDate(8 , paciente.getDataNascimento());
             ps.setString(9, paciente.getNomeCompleto());
+            ps.setInt(10 , paciente.getId());
             ps.execute();
             ps.close();
         } catch (SQLException e) {

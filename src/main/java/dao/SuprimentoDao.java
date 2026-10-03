@@ -55,6 +55,7 @@ public class SuprimentoDao {
             ps.setString(1 , suprimento.getNome());
             ps.setInt(2 , suprimento.getEstoque());
             ps.setString(3 , suprimento.getDescricao());
+            ps.setInt(4 , suprimento.getId());
             ps.execute();
             ps.close();
         } catch (SQLException e) {

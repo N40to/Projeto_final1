@@ -29,7 +29,7 @@
               <a class="nav-link active" href="equipamentos.jsp" id="item-list" style="font-size: 30px">Equipamentos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#" id="item-list" style="font-size: 30px">Funcionários</a>
+              <a class="nav-link active" href="funcionarios.jsp" id="item-list" style="font-size: 30px">Funcionários</a>
             </li>
           </ul>
         </div>

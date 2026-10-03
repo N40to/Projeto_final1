@@ -70,6 +70,7 @@ public class FuncionarioDao {
             ps.setString(6 , funcionario.getDescricao());
             ps.setDouble(7 , funcionario.getSalario());
             ps.setString(8 , funcionario.getNomeCompleto());
+            ps.setInt(9 , funcionario.getId());
             ps.execute();
             ps.close();
         } catch (SQLException e) {

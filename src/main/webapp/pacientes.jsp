@@ -3,6 +3,7 @@
 <%@ page import="model.Paciente" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.net.URLEncoder" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -60,7 +61,7 @@
                         <th>Endereço</th>
                         <th>Tipo Sanguíneo</th>
                         <th>Data Nasc.</th>
-                        <th class="text-center">Ações</th>
+                        <th class="text-center" colspan="2">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,12 +70,16 @@
                         PacienteDao dao = new PacienteDao();
                         List<Paciente> pacientes = dao.getByPaciente();
                         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        SimpleDateFormat sdfInput = new SimpleDateFormat("yyyy-MM-dd");
 
                         if (pacientes != null && !pacientes.isEmpty()) {
                             for (Paciente paciente : pacientes) {
                                 String dataFormatada = "";
+                                String dataParaUrl = "";
                                 if (paciente.getDataNascimento() != null) {
                                     dataFormatada = sdf.format(paciente.getDataNascimento());
+                                    dataParaUrl = sdfInput.format(paciente.getDataNascimento());
+
                                 }
                 %>
                     <tr>
@@ -93,6 +98,10 @@
                                class="btn btn-danger btn-sm"
                                onclick="return confirm('Tem certeza que deseja excluir o paciente <%= paciente.getNomeCompleto() %>?');">
                                Excluir
+                        <td class="text-center">
+                            <a href="atualizarPaciente.jsp?id=<%= paciente.getId() %>&nomeCompleto=<%= paciente.getNomeCompleto() %>&idade=<%= paciente.getIdade()%>&cpf=<%= paciente.getCpf() %>&descricao=<%= paciente.getDescricao() %>&telefone=<%= paciente.getTelefone() %>&contatoFamiliar=<%= paciente.getContatoFamiliar() %>&endereco=<%= paciente.getEndereco() %>&tipoSanguinio=<%= paciente.getTipoSanguinio() %>&dataNascimento=<%= dataParaUrl %>"
+                               class="btn btn-primary btn-sm">
+                               Atualizar
                             </a>
                         </td>
                     </tr>
@@ -108,7 +117,7 @@
                     } catch (Exception e) {
                 %>
                     <tr>
-                        <td colspan="11" class="text-center text-warning py-3">
+                        <td colspan="12" class="text-center text-warning py-3">
                             Erro ao carregar dados: <%= e.getMessage() %>
                         </td>
                     </tr>
@@ -122,14 +131,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        if (window.history.replaceState) {
-            const url = new URL(window.location.href);
-            if (url.searchParams.has('message')) {
-                url.searchParams.delete('message');
-                window.history.replaceState(null, '', url.pathname);
-            }
-        }
-    </script>
+
 </body>
 </html>

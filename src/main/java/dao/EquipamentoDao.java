@@ -63,7 +63,8 @@ public class EquipamentoDao {
             ps.setString(3 , equipamento.getModelo());
             ps.setString(4 , equipamento.getMarca());
             ps.setDate(5 , equipamento.getDataUltimaManutencao());
-            ps.setString(5 , equipamento.getObservacao());
+            ps.setString(6 , equipamento.getObservacao());
+            ps.setInt(7 , equipamento.getId());
             ps.execute();
             ps.close();
         } catch (SQLException e) {

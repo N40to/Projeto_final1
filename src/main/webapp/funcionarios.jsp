@@ -51,12 +51,13 @@
                     <th>#</th>
                     <th>Nome</th>
                     <th>Cargo</th>
-                    <th>Descricao</th>
+                    <th>Descrição</th>
                     <th>Cpf</th>
+                    <th>Endereço</th>
                     <th>Telefone</th>
                     <th>Data de nascimento</th>
-                    <th>Descrição</th>
                     <th>Salário</th>
+                    <th class="text-center" colspan="2">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -74,24 +75,37 @@
                     <td><%= funcionario.getCargo() %></td>
                     <td><%= funcionario.getDescricao() %></td>
                     <td><%= funcionario.getCpf() %></td>
+                    <td><%= funcionario.getEndereco() %></td>
                     <td><%= funcionario.getTelefone() %></td>
                     <td><%= funcionario.getDataNascimento() %></td>
-                    <td><%= funcionario.getDescricao() %></td>
                     <td><%= funcionario.getSalario() %></td>
+                    <td class="text-center">
+                        <a href="excluirFuncionario.jsp?id=<%= funcionario.getId() %>"
+                            class="btn btn-danger btn-sm"
+                            onclick="return confirm('Tem certeza que deseja excluir o funcionário <%= funcionario.getNomeCompleto() %>?');">
+                            Excluir
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <a href="atualizarFuncionario.jsp?id=<%= funcionario.getId() %>&nomeCompleto=<%= funcionario.getNomeCompleto() %>&endereco=<%= funcionario.getEndereco()%>&cpf=<%= funcionario.getCpf() %>&telefone=<%= funcionario.getTelefone() %>&dataNascimento=<%= funcionario.getDataNascimento() %>&descricao=<%= funcionario.getDescricao() %>&salario=<%= funcionario.getSalario()%>&cargo=<%= funcionario.getCargo()%>"
+                            class="btn btn-primary btn-sm">
+                            Atualizar
+                        </a>
+                    </td>
                 </tr>
             <%
                         }
                     } else {
             %>
                 <tr>
-                    <td colspan="4" class="text-center">Nenhum funcionário encontrado.</td>
+                    <td colspan="11" class="text-center">Nenhum funcionário encontrado.</td>
                 </tr>
             <%
                     }
                 } catch (Exception e) {
             %>
                 <tr>
-                    <td colspan="4" class="text-center text-warning">
+                    <td colspan="11" class="text-center text-warning">
                         Erro ao carregar dados: <%= e.getMessage() %>
                     </td>
                 </tr>

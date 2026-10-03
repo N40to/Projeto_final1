@@ -4,37 +4,37 @@
 <%@ page import="java.sql.Date" %>
 
 <%
-    request.setCharacterEncoding("UTF-8");
 
     try {
+        int id = Integer.parseInt(request.getParameter("id"));
         String nomeCompleto = request.getParameter("nomeCompleto");
         String cargo = request.getParameter("cargo");
+        double salario = Double.parseDouble(request.getParameter("salario"));
         String cpf = request.getParameter("cpf");
-        String telefone = request.getParameter("telefone");
         String descricao = request.getParameter("descricao");
+        String telefone = request.getParameter("telefone");
         String endereco = request.getParameter("endereco");
-        int salario = Integer.parseInt(request.getParameter("salario"));
 
         String dataStr = request.getParameter("dataNascimento");
 
         Funcionario funcionario = new Funcionario();
+        funcionario.setId(id);
         funcionario.setNomeCompleto(nomeCompleto);
-        funcionario.setCargo(cargo);
-        funcionario.setCpf(cpf);
-        funcionario.setTelefone(telefone);
-        funcionario.setDescricao(descricao);
-        funcionario.setEndereco(endereco);
         funcionario.setSalario(salario);
-
+        funcionario.setCpf(cpf);
+        funcionario.setDescricao(descricao);
+        funcionario.setTelefone(telefone);
+        funcionario.setCargo(cargo);
+        funcionario.setEndereco(endereco);
 
         if (dataStr != null && !dataStr.isEmpty()) {
             funcionario.setDataNascimento(Date.valueOf(dataStr));
         }
 
         FuncionarioDao dao = new FuncionarioDao();
-        dao.inserir(funcionario);
+        dao.atualizar(funcionario);
 
-        response.sendRedirect("funcionarios.jsp?message=Paciente registrado com sucesso!");
+        response.sendRedirect("funcionarios.jsp?message=Funcionario atualizado com sucesso!");
     } catch (Exception e) {
         response.sendRedirect("funcionarios.jsp?message=Erro ao cadastrar: " + e.getMessage());
     }

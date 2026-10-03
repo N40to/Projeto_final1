@@ -18,6 +18,7 @@
             <a href="suprimentos.jsp">Suprimentos</a>
             <a href="equipamentos.jsp">Equipamentos</a>
             <a href="funcionarios.jsp">Funcionários</a>
+            <a href="index.jsp">Menu</a>
         </div>
         <div style="width: 35px;"></div>
     </div>

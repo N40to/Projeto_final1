@@ -54,9 +54,9 @@
                         <th>Estado</th>
                         <th>Modelo</th>
                         <th>Marca</th>
+                        <th>Observação</th>
                         <th>Data da última manutenção</th>
-                        <th>Obsevação</th>
-                        <th class="text-center">Ações</th>
+                        <th class="text-center" colspan="2">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -88,6 +88,12 @@
                                Excluir
                             </a>
                         </td>
+                        <td class="text-center">
+                            <a href="atualizarEquipamento.jsp?id=<%= equipamento.getId() %>&nome=<%= equipamento.getNome() %>&estado=<%= equipamento.getEstado()%>&observacao=<%= equipamento.getObservacao()%>&modelo=<%= equipamento.getModelo() %>&marca=<%= equipamento.getMarca()%>&dataUltimaManutencao=<%= equipamento.getDataUltimaManutencao()%>"
+                               class="btn btn-primary btn-sm">
+                               Atualizar
+                            </a>
+                        </td>
                     </tr>
                 <%
                             }
@@ -115,14 +121,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        if (window.history.replaceState) {
-            const url = new URL(window.location.href);
-            if (url.searchParams.has('message')) {
-                url.searchParams.delete('message');
-                window.history.replaceState(null, '', url.pathname);
-            }
-        }
-    </script>
 </body>
 </html>
