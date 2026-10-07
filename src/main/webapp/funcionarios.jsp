@@ -66,6 +66,7 @@
                     FuncionarioDao dao = new FuncionarioDao();
                     List<Funcionario> funcionarios = dao.getByFuncionario();
 
+
                     if (funcionarios != null && !funcionarios.isEmpty()) {
                         for (Funcionario funcionario : funcionarios) {
             %>
