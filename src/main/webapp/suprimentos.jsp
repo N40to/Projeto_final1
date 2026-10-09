@@ -91,7 +91,7 @@
                         } else {
                 %>
                     <tr>
-                        <td colspan="11" class="text-center py-3">Nenhum paciente encontrado.</td>
+                        <td colspan="11" class="text-center py-3">Nenhum suprimento encontrado.</td>
                     </tr>
                 <%
                         }
